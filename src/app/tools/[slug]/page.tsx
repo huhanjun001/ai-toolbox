@@ -9,8 +9,9 @@ export async function generateStaticParams() {
   return tools.map((tool) => ({ slug: tool.slug }));
 }
 
-export default function ToolDetailPage({ params }: { params: { slug: string } }) {
-  const tool = getToolBySlug(params.slug);
+export default async function ToolDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const tool = getToolBySlug(slug);
   if (!tool) notFound();
 
   const relatedTools = getToolsByCategory(tool.category).filter((t) => t.id !== tool.id).slice(0, 3);
