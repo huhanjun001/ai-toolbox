@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-page: #08090a;
-  --color-panel: #0f1011;
-  --color-card: #191a1b;
-  --color-card-hover: #1e1f21;
-  --color-text-primary: #f7f8f8;
-  --color-text-secondary: #d0d6e0;
-  --color-text-tertiary: #8a8f98;
-  --color-text-muted: #62666d;
-  --color-accent: #6c5ce7;
-  --color-accent-hover: #828fff;
-  --color-border: rgba(255,255,255,0.08);
-  --color-border-hover: rgba(255,255,255,0.12);
+  --color-page: #0a0a0f;
+  --color-panel: #111118;
+  --color-card: #1a1a24;
+  --color-card-hover: #1e1e2a;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-accent: #6366f1;
+  --color-accent-hover: #818cf8;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-hover: rgba(255, 255, 255, 0.12);
   --color-success: #10b981;
+  --color-tag-bg: rgba(99, 102, 241, 0.1);
 }
 
 body {
@@ -25,10 +25,25 @@ body {
 }
 
 ::selection {
-  background: rgba(108, 92, 231, 0.3);
+  background: rgba(99, 102, 241, 0.3);
 }
 
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-card) var(--color-page);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
 }

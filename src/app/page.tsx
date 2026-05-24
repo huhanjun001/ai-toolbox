@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { tools, articles, categories, getPopularTools } from '@/lib/tools';
 
 export default function HomePage() {
-  const popularTools = getPopularTools(8);
-  const latestArticles = articles.slice(0, 3);
+  const popularTools = getPopularTools(6);
+  const latestArticles = articles.slice(0, 4);
   const featuredTool = tools.find((t) => t.slug === 'chatgpt')!;
 
   return (
@@ -23,171 +23,158 @@ export default function HomePage() {
             <div className="absolute -top-20 left-1/3 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-purple-500/5 blur-[100px]" />
           </div>
 
-          <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
             <div className="text-center">
               {/* Badge */}
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-1.5 text-sm text-[var(--color-text-tertiary)]">
-                <span className="flex h-2 w-2 rounded-full bg-[var(--color-success)]" />
-                500+ Tools Curated
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-1.5 text-xs text-[var(--color-text-secondary)]">
+                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                🎯 500+ AI Tools Curated
               </div>
 
               {/* Heading */}
-              <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-                <span className="bg-gradient-to-r from-[var(--color-text-primary)] via-[var(--color-accent-hover)] to-[var(--color-accent)] bg-clip-text text-transparent">
-                  Discover the Best
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)] bg-clip-text text-transparent">
-                  AI Tools
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl leading-tight">
+                Discover the{' '}
+                <span className="bg-gradient-to-r from-[var(--color-accent)] via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                  Best AI Tools
                 </span>
               </h1>
 
-              <p className="mx-auto mt-6 max-w-2xl text-lg text-[var(--color-text-tertiary)] sm:text-xl">
-                10x your productivity with the right AI tools. Curated, compared, and reviewed — find your perfect AI
-                companion.
+              <p className="mx-auto mt-5 max-w-2xl text-base text-[var(--color-text-muted)] sm:text-lg">
+                Curated, compared, and reviewed. Find the perfect AI tool for your workflow.
               </p>
 
               {/* Search bar */}
-              <div className="mx-auto mt-10 max-w-xl">
+              <div className="mx-auto mt-8 max-w-lg">
                 <div className="relative">
                   <svg
-                    className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[var(--color-text-muted)]"
+                    className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-muted)]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                   <input
                     type="text"
-                    placeholder="Search AI tools..."
+                    placeholder="Search 500+ AI tools..."
                     readOnly
-                    className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] py-4 pl-12 pr-4 text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] outline-none transition-all focus:border-[var(--color-accent)]/50 focus:ring-2 focus:ring-[var(--color-accent)]/20 cursor-pointer"
+                    className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] py-3.5 pl-11 pr-4 text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] outline-none transition-all focus:border-[var(--color-accent)]/50 focus:ring-2 focus:ring-[var(--color-accent)]/20 cursor-pointer"
                   />
-                  <kbd className="absolute right-4 top-1/2 -translate-y-1/2 hidden sm:inline-flex items-center gap-1 rounded-md border border-[var(--color-border)] bg-[var(--color-panel)] px-2 py-1 text-[10px] text-[var(--color-text-muted)]">
-                    ⌘K
-                  </kbd>
                 </div>
               </div>
 
               {/* Stats */}
-              <div className="mx-auto mt-12 flex flex-wrap justify-center gap-8 sm:gap-12">
-                {[
-                  { value: '500+', label: 'Tools' },
-                  { value: '50+', label: 'Articles' },
-                  { value: '11', label: 'Categories' },
-                  { value: 'Weekly', label: 'Updates' },
-                ].map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-2xl font-bold text-[var(--color-text-primary)] sm:text-3xl">{stat.value}</div>
-                    <div className="mt-1 text-sm text-[var(--color-text-muted)]">{stat.label}</div>
-                  </div>
-                ))}
+              <div className="mx-auto mt-10 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-[var(--color-text-muted)]">
+                <span>500+ Tools</span>
+                <span className="hidden sm:inline">·</span>
+                <span>50+ Articles</span>
+                <span className="hidden sm:inline">·</span>
+                <span>11 Categories</span>
+                <span className="hidden sm:inline">·</span>
+                <span>Weekly Updates</span>
               </div>
             </div>
           </div>
         </section>
 
         {/* ============ CATEGORIES ============ */}
-        <section id="categories" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-10">
-            <div>
-              <h2 className="text-2xl font-bold text-[var(--color-text-primary)] sm:text-3xl">Browse Categories</h2>
-              <p className="mt-2 text-sm text-[var(--color-text-tertiary)]">Find AI tools by category</p>
-            </div>
+        <section id="categories" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <h2 className="text-xl font-bold text-[var(--color-text-primary)] sm:text-2xl">Browse Categories</h2>
+            <p className="mt-1 text-sm text-[var(--color-text-muted)]">Find AI tools by category</p>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-            {categories.map((cat) => (
-              <div
-                key={cat.name}
-                className="group cursor-pointer rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-4 text-center transition-all duration-300 hover:border-[var(--color-border-hover)] hover:bg-[var(--color-card-hover)] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20"
-              >
-                <span className="text-2xl sm:text-3xl block">{cat.icon}</span>
-                <span className="mt-2 block text-sm font-medium text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors">
-                  {cat.name}
-                </span>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {categories.map((cat) => {
+              const count = tools.filter((t) => t.category === cat.name).length;
+              return (
+                <div
+                  key={cat.name}
+                  className="group cursor-pointer rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-4 transition-all duration-300 hover:border-[var(--color-accent)]/40 hover:shadow-lg hover:shadow-black/20 hover:-translate-y-0.5"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">{cat.icon}</span>
+                    <div className="text-left">
+                      <span className="block text-xs font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-hover)] transition-colors">
+                        {cat.name}
+                      </span>
+                      <span className="block text-[10px] text-[var(--color-text-muted)] mt-0.5">{count} tools</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
         {/* ============ FEATURED TODAY ============ */}
         <section className="border-t border-[var(--color-border)] bg-[var(--color-panel)]">
-          <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-10">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between mb-6">
               <div>
-                <div className="flex items-center gap-2 text-sm text-[var(--color-accent-hover)] font-medium mb-2">
-                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
+                <div className="flex items-center gap-2 text-xs text-[var(--color-accent-hover)] font-medium mb-1">
+                  <span className="flex h-2 w-2 rounded-full bg-[var(--color-accent)]" />
                   Featured Today
                 </div>
-                <h2 className="text-2xl font-bold text-[var(--color-text-primary)] sm:text-3xl">Spotlight</h2>
+                <h2 className="text-xl font-bold text-[var(--color-text-primary)] sm:text-2xl">Spotlight</h2>
               </div>
               <Link
                 href={`/tools/${featuredTool.slug}`}
-                className="hidden sm:inline-flex items-center gap-1 text-sm text-[var(--color-accent-hover)] hover:text-[var(--color-accent)] transition-colors"
+                className="hidden sm:inline-flex items-center gap-1 text-xs text-[var(--color-accent-hover)] hover:text-[var(--color-accent)] transition-colors"
               >
                 View Details
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
             </div>
 
             <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-card)] overflow-hidden">
-              <div className="grid md:grid-cols-2">
+              <div className="grid md:grid-cols-5">
                 {/* Left: Info */}
-                <div className="p-8 sm:p-10 flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-panel)] text-2xl">
+                <div className="md:col-span-3 p-6 sm:p-8 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-panel)] text-xl">
                       {featuredTool.icon}
                     </span>
                     <div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-primary)]">{featuredTool.name}</h3>
-                      <span className="text-xs text-[var(--color-text-muted)]">{featuredTool.category}</span>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-base font-bold text-[var(--color-text-primary)]">{featuredTool.name}</h3>
+                        <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2 py-0.5 text-[9px] font-medium uppercase tracking-wider text-emerald-400">
+                          FEATURED
+                        </span>
+                      </div>
+                      <span className="text-[10px] text-[var(--color-text-muted)]">{featuredTool.category}</span>
                     </div>
                   </div>
-                  <p className="text-[var(--color-text-tertiary)] leading-relaxed">{featuredTool.description}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{featuredTool.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
                     {featuredTool.features.slice(0, 4).map((f) => (
                       <span
                         key={f}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-panel)] px-3 py-1.5 text-xs text-[var(--color-text-secondary)]"
+                        className="inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-[10px] text-[var(--color-accent-hover)]"
+                        style={{ background: 'rgba(99,102,241,0.1)' }}
                       >
-                        <svg className="h-3 w-3 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
                         {f}
                       </span>
                     ))}
                   </div>
-                  <div className="mt-8 flex items-center gap-4">
+                  <div className="mt-5 flex items-center gap-4">
                     <Link
                       href={`/tools/${featuredTool.slug}`}
-                      className="rounded-lg bg-[var(--color-accent)] px-6 py-2.5 text-sm font-medium text-white transition-all hover:bg-[var(--color-accent-hover)]"
+                      className="rounded-lg bg-gradient-to-r from-[var(--color-accent)] to-indigo-500 px-5 py-2 text-xs font-medium text-white transition-all hover:from-indigo-500 hover:to-purple-500 hover:shadow-lg hover:shadow-[var(--color-accent)]/25"
                     >
                       Learn More
                     </Link>
-                    <span className="text-xs text-[var(--color-text-muted)]">
+                    <span className="text-[10px] text-[var(--color-text-muted)]">
                       ⭐ {featuredTool.rating} · {featuredTool.priceType}
                     </span>
                   </div>
                 </div>
                 {/* Right: Visual */}
-                <div className="hidden md:flex items-center justify-center bg-gradient-to-br from-[var(--color-accent)]/10 to-purple-500/5 p-10">
+                <div className="hidden md:flex md:col-span-2 items-center justify-center bg-gradient-to-br from-[var(--color-accent)]/10 to-purple-500/5 p-8">
                   <div className="relative">
                     <div className="absolute inset-0 rounded-full bg-[var(--color-accent)]/20 blur-3xl" />
-                    <span className="relative block text-8xl">{featuredTool.icon}</span>
+                    <span className="relative block text-7xl">{featuredTool.icon}</span>
                   </div>
                 </div>
               </div>
@@ -196,23 +183,23 @@ export default function HomePage() {
         </section>
 
         {/* ============ POPULAR TOOLS ============ */}
-        <section id="popular" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-10">
+        <section id="tools" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-[var(--color-text-primary)] sm:text-3xl">Popular Tools</h2>
-              <p className="mt-2 text-sm text-[var(--color-text-tertiary)]">Most visited AI tools this month</p>
+              <h2 className="text-xl font-bold text-[var(--color-text-primary)] sm:text-2xl">Popular Tools</h2>
+              <p className="mt-1 text-sm text-[var(--color-text-muted)]">Most visited AI tools this month</p>
             </div>
             <Link
               href="/#tools"
-              className="hidden sm:inline-flex items-center gap-1 text-sm text-[var(--color-accent-hover)] hover:text-[var(--color-accent)] transition-colors"
+              className="hidden sm:inline-flex items-center gap-1 text-xs text-[var(--color-accent-hover)] hover:text-[var(--color-accent)] transition-colors"
             >
               View All
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {popularTools.map((tool) => (
               <ToolCard key={tool.id} tool={tool} />
             ))}
@@ -221,24 +208,24 @@ export default function HomePage() {
 
         {/* ============ LATEST ARTICLES ============ */}
         <section className="border-t border-[var(--color-border)] bg-[var(--color-panel)]">
-          <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-10">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-2xl font-bold text-[var(--color-text-primary)] sm:text-3xl">Latest Articles</h2>
-                <p className="mt-2 text-sm text-[var(--color-text-tertiary)]">AI tool comparisons, guides & reviews</p>
+                <h2 className="text-xl font-bold text-[var(--color-text-primary)] sm:text-2xl">Latest Articles</h2>
+                <p className="mt-1 text-sm text-[var(--color-text-muted)]">AI tool comparisons, guides & reviews</p>
               </div>
               <Link
                 href="/articles"
-                className="hidden sm:inline-flex items-center gap-1 text-sm text-[var(--color-accent-hover)] hover:text-[var(--color-accent)] transition-colors"
+                className="hidden sm:inline-flex items-center gap-1 text-xs text-[var(--color-accent-hover)] hover:text-[var(--color-accent)] transition-colors"
               >
-                All Articles
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                View All
+                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {latestArticles.map((article) => (
+            <div className="grid gap-3 sm:grid-cols-2">
+              {latestArticles.slice(0, 4).map((article) => (
                 <ArticleCard key={article.id} article={article} />
               ))}
             </div>
@@ -246,30 +233,31 @@ export default function HomePage() {
         </section>
 
         {/* ============ NEWSLETTER ============ */}
-        <section id="newsletter" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-gradient-to-br from-[var(--color-card)] via-[var(--color-card)] to-[var(--color-accent)]/5 p-8 sm:p-12">
-            <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[var(--color-accent)]/5 blur-[100px]" />
-            <div className="relative">
-              <div className="mx-auto max-w-xl text-center">
+        <section id="newsletter">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-panel)] p-8 sm:p-12">
+              <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[var(--color-accent)]/5 blur-[100px]" />
+              <div className="pointer-events-none absolute -left-20 -bottom-20 h-48 w-48 rounded-full bg-purple-500/5 blur-[80px]" />
+              <div className="relative mx-auto max-w-lg text-center">
                 <span className="text-3xl">📬</span>
-                <h2 className="mt-4 text-2xl font-bold text-[var(--color-text-primary)] sm:text-3xl">
+                <h2 className="mt-4 text-xl font-bold text-[var(--color-text-primary)] sm:text-2xl">
                   Stay Ahead of the AI Curve
                 </h2>
-                <p className="mt-3 text-sm text-[var(--color-text-tertiary)]">
+                <p className="mt-2 text-sm text-[var(--color-text-muted)]">
                   Get weekly updates on the latest AI tools, comparisons, and tips delivered to your inbox.
                 </p>
-                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <div className="mt-6 flex flex-col sm:flex-row gap-2">
                   <input
                     type="email"
                     placeholder="Enter your email"
                     readOnly
-                    className="flex-1 rounded-xl border border-[var(--color-border)] bg-[var(--color-panel)] px-4 py-3 text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] outline-none focus:border-[var(--color-accent)]/50 focus:ring-2 focus:ring-[var(--color-accent)]/20"
+                    className="flex-1 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-2.5 text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] outline-none focus:border-[var(--color-accent)]/50 focus:ring-2 focus:ring-[var(--color-accent)]/20"
                   />
-                  <button className="rounded-xl bg-[var(--color-accent)] px-6 py-3 text-sm font-medium text-white transition-all hover:bg-[var(--color-accent-hover)] hover:shadow-lg hover:shadow-[var(--color-accent)]/25">
+                  <button className="rounded-lg bg-gradient-to-r from-[var(--color-accent)] to-indigo-500 px-6 py-2.5 text-sm font-medium text-white transition-all hover:from-indigo-500 hover:to-purple-500 hover:shadow-lg hover:shadow-[var(--color-accent)]/25 whitespace-nowrap">
                     Subscribe
                   </button>
                 </div>
-                <p className="mt-4 text-xs text-[var(--color-text-muted)]">No spam. Unsubscribe anytime.</p>
+                <p className="mt-3 text-[10px] text-[var(--color-text-muted)]">No spam. Unsubscribe anytime.</p>
               </div>
             </div>
           </div>
